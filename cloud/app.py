@@ -3,12 +3,14 @@ from flask import Flask
 from flask_restful import Api
 from flask_graphql import GraphQLView
 from routes.home import HomeRest
+from routes.fraud import FraudRest
 from schema import schema
 
 app = Flask(__name__)
 app.config["DEBUG"] = os.environ.get('DEVELOPMENT', True)
 api = Api(app)
 
+api.add_resource(FraudRest, '/rest/fraud')
 api.add_resource(HomeRest, '/rest/')
 
 app.add_url_rule(

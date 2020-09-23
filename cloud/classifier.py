@@ -70,19 +70,12 @@ class Classifier:
                         sklearn_classifiers=['logisitic_regression', 'decision_tree',
                                              'random_forest', 'support_vector_classifier',
                                              'multilayer_perceptron', 'pipeline']):
-        classifiers = []
+        classifiers = {}
         for classifier in sklearn_classifiers:
-            classifiers.append(
-                {
-                    f'{classifier}': self.get_classifier(classifier)
-                }
-            )
+            classifiers[f'{classifier}'] = self.get_classifier(classifier)
         for classifier in tensorflow_classifiers:
-            classifiers.append(
-                {
-                    f'{classifier}': self.get_tensorflow_classifier()
-                }
-            )
+            classifiers[f'{classifier}'] = self.get_tensorflow_classifier()
+
         return classifiers
 
 

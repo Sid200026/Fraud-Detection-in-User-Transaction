@@ -69,6 +69,11 @@ scaler_fit = scaler.fit(X_train[:,-1].reshape(-1,1))
 normalisedAmount = scaler_fit.transform(X_train[:,-1].reshape(-1,1))
 normalisedAmount
 
+import pickle
+pickle_out = open("scaler.pickle","wb")
+pickle.dump(scaler_fit, pickle_out)
+pickle_out.close()
+
 X_train[:,-1] = normalisedAmount.reshape(1,-1)
 X_train[:,-1]
 
