@@ -1,5 +1,6 @@
 from graphene import ObjectType
+from routes.fraud import Mutation as fraudMutation
 
 
-class Mutation(ObjectType):
+class Mutation(fraudMutation, ObjectType):
     pass
