@@ -1,8 +1,10 @@
 #!/bin/bash
 
+echo "http://127.0.0.1:5000/rest/fraud"
+
 curl --location --request POST 'http://127.0.0.1:5000/rest/fraud' \
---header 'Content-Type: application/json' \
---data-raw '{
+    --header 'Content-Type: application/json' \
+    --data-raw '{
     "Time": 123,
     "V1": 1,
     "V2": 1,

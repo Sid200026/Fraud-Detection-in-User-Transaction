@@ -4,7 +4,8 @@ echo "Testing the server.\n"
 
 cd Examples/
 
-for eachfile in './*.sh'; do
+example_file=$(ls ./*.sh)
+for eachfile in $example_file; do
     echo $eachfile
     echo '\n'
     sh $eachfile
