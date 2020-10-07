@@ -3,6 +3,10 @@ import logging
 import pickle
 from keras.models import model_from_json
 import errno
+import logging
+
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # FATAL
+logging.getLogger('tensorflow').setLevel(logging.FATAL)
 
 
 class NotFoundException(FileNotFoundError):

@@ -1,6 +1,6 @@
 Keras==2.4.3
 tensorflow==2.3.0
-numpy==1.19.2
+numpy<1.19.0
 scikit-learn==0.22.2.post1
 Flask==1.1.2
 Flask-API==2.0
@@ -8,3 +8,5 @@ Flask-RESTful==0.3.8
 Flask-GraphQL==2.0.1
 graphene==2.1.8
 pandas==1.1.2
+scipy==1.4.1
+aniso8601<=7
