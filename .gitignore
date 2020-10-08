@@ -4,3 +4,5 @@ venv/
 .DS_Store
 .vscode/
 dump/
+package-lock.json
+node_modules/
