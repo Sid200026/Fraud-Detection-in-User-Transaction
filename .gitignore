@@ -6,3 +6,4 @@ venv/
 dump/
 package-lock.json
 node_modules/
+secret.ini
