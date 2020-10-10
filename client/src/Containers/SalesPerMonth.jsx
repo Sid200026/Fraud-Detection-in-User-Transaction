@@ -14,21 +14,6 @@ import {
   Legend,
 } from "recharts";
 
-const monthMapping = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-];
-
 const SalesPerMonth = () => {
   const currentYear = new Date().getFullYear();
   const currentMonth = new Date().getMonth() + 1;
@@ -51,7 +36,7 @@ const SalesPerMonth = () => {
   amount_data.forEach((ele) => {
     const month = ele.date.getMonth();
     const objIndex = data.findIndex((ele) => ele.monthIndex === month);
-    if (objIndex != -1) data[objIndex].amount += ele.amount;
+    if (objIndex !== -1) data[objIndex].amount += ele.amount;
   });
 
   data.sort((a, b) => a.monthIndex - b.monthIndex);

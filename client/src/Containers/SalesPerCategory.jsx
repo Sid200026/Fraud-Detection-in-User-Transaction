@@ -34,11 +34,6 @@ const renderCustomizedLabel = ({
   );
 };
 
-const customLegend = (info) => {
-  console.log(info);
-  return "a";
-};
-
 const SalesPerCategory = () => {
   const data = [];
   const currentYear = new Date().getFullYear();
