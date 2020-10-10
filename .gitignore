@@ -7,3 +7,4 @@ dump/
 package-lock.json
 node_modules/
 secret.ini
+.env

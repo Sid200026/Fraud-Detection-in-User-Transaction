@@ -1,13 +1,24 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { SmallCard } from "./SmallCard.jsx";
-import { data } from "../Mock Data/data1";
 
 const DifferenceSales = () => {
-  const expectation_sum = data.reduce(
-    (accum, ele) => accum + ele.expectation,
+  const currentMonth = new Date().getMonth() + 1;
+  const currentYear = new Date().getFullYear();
+  const expectationReducer = useSelector((state) => state.expectationReducer);
+  const expected_data = expectationReducer.filter(
+    (ele) => ele.year === currentYear && ele.monthIndex < currentMonth 
+  );
+  const expectation_sum = expected_data.reduce(
+    (accum, ele) => accum + ele.expected,
     0
   );
-  const amount_sum = data.reduce((accum, ele) => accum + ele.amount, 0);
+
+  const transactionReducer = useSelector((state) => state.transactionReducer);
+  const amount_data = transactionReducer.filter(
+    (ele) => ele.year === currentYear
+  );
+  const amount_sum = amount_data.reduce((accum, ele) => accum + ele.amount, 0);
   const difference = amount_sum - expectation_sum;
   let color;
   let sign;

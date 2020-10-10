@@ -25,7 +25,7 @@ const SmallCard = (props) => {
           >
             {props.title}
           </Typography>
-          <Typography variant="subtitle1" color="initial" component="subtitle1">
+          <Typography variant="subtitle1" color="initial" component="h6">
             {props.description}
           </Typography>
         </CardContent>

@@ -1,9 +1,14 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { SmallCard } from "./SmallCard.jsx";
-import { data } from "../Mock Data/data1";
 
 const AverageSalesPerMonth = () => {
-  const sum = data.reduce((accum, ele) => accum + ele.amount, 0) / 12;
+  const currentYear = new Date().getFullYear();
+  const transactionReducer = useSelector((state) => state.transactionReducer);
+  const data = transactionReducer.filter((ele) => ele.year === currentYear);
+  const sum =
+    data.reduce((accum, ele) => accum + ele.amount, 0) /
+    (new Date().getMonth() + 1);
   const total_sales = `$${sum.toFixed(2)} per month`;
   return (
     <SmallCard
