@@ -100,7 +100,7 @@ def insert_transactions():
                            VALUES (%s,%s,%s) """
     records = []
     start_date = datetime.date(2018, 1, 1)
-    end_date = datetime.date(2020, 10, 31)
+    end_date = datetime.date(2020, 10, 10)
     for i in range(9500):
         category = random.choice(CATEGORIES)
         value = None

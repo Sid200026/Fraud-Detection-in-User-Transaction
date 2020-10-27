@@ -3,6 +3,7 @@ from configparser import RawConfigParser
 
 import random
 import datetime
+import argparse
 
 config = RawConfigParser()
 config.read('secret.ini')
@@ -14,6 +15,12 @@ PORT = config.get('DATABASE', 'PORT')
 DATABASE = config.get('DATABASE', 'DATABASE')
 
 connection = None
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument(
+    "--value"
+)
 
 CATEGORIES = [
     'Electronics',
@@ -44,13 +51,14 @@ def connect():
 
 def insert_transaction():
     global connection
+    args = parser.parse_args()
     cursor = connection.cursor()
     sql_insert_query = """ INSERT INTO TRANSACTION (date_of_transaction, category, amount)
                            VALUES (%s,%s,%s) """
     records = []
     start_date = datetime.date(2018, 1, 1)
     end_date = datetime.date(2020, 10, 31)
-    value = random.randint(10, 120)
+    value = args.value or random.randint(100, 1200)
     category = random.choice(CATEGORIES)
     date = datetime.date.today().strftime("%Y-%m-%d")
     record = (date, category, value)

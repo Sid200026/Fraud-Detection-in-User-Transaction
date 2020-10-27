@@ -3,7 +3,7 @@ cube(`Transaction`, {
 
   joins: {},
   refreshKey: {
-    every: `1 hour`,
+    every: `1 second`,
   },
 
   measures: {
